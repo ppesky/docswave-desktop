@@ -1,0 +1,66 @@
+{
+	"name": "docswave-desktop",
+	"version": "1.0.0",
+	"description": "A minimal Docswave desktop application",
+	"author": "ppesky",
+	"license": "MIT",
+	"main": "main.js",
+	"repository": "https://github.com/ppesky/docswave-desktop",
+	"keywords": [
+		"Electron",
+		"docswave",
+		"demo"
+	],
+	"build": {
+		"appId": "ppesky.docswave",
+		"mac": {
+			"category": "public.app-category.business",
+			"target": [
+				"default"
+			],
+			"icon": "docswave_512.png"
+		},
+		"dmg": {
+			"icon": "docswave.icns",
+			"format": "UDZO"
+		},
+		"linux": {
+			"target": [
+				"appImage",
+				"deb"
+			],
+			"icon": "docswave_512.png",
+			"category": "Office"
+		},
+		"win": {
+			"target": [
+				"nsis"
+			],
+			"publish": [
+				{
+					"provider": "github",
+					"owner": "ppesky",
+					"repo": "docswave-desktop"
+				}
+			],
+			"icon": "docswave_512.png"
+		},
+		"nsis": {
+			"oneClick": true,
+			"createDesktopShortcut": true
+		}
+	},
+	"scripts": {
+		"start": "electron .",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder",
+		"publish:win": "electron-builder build --win --ia32 --x64 -p always",
+		"publish:mac": "electron-builder build --mac -p always",
+		"publish:linux": "electron-builder build --linux -p always",
+		"postinstall": "electron-builder install-app-deps"
+	},
+	"devDependencies": {
+		"electron": "^4.0.1",
+		"electron-builder": "^20.38.5"
+	}
+}
