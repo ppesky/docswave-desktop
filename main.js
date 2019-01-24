@@ -19,16 +19,17 @@ function createWindow () {
 
   // new-window
   // will-navigate
+  // did-navigate
   // did-navigate-in-page
   mainWindow.webContents.on('new-window', (event, url) => {
     event.preventDefault()
     let newWin = new BrowserWindow({show: false})
 
-    newWin.webContents.on('did-navigate-in-page', (nextEvent, nextUrl) => {
+    newWin.webContents.on('did-navigate', (nextEvent, nextUrl) => {
       let currentURL = newWin.webContents.getURL()
       // console.log('nextUrl : '+nextUrl)
       // console.log('currentURL : '+currentURL)
-      if(!currentURL.startsWith('https://www.docswave.com/') && !currentURL.startsWith('https://accounts.google.com/')) {
+      if(currentURL.startsWith('https://drive.google.com/')) {
         nextEvent.preventDefault()
         shell.openExternal(currentURL)
         newWin.close()

@@ -3,6 +3,9 @@
 This is a [Docswave](https://www.docswave.com/) desktop application made with [Electron](https://github.com/electron).
 
 *Disclaimer : Not affiliated with Docswave.*
+## Installation
+
+Download the [latest releases](https://github.com/ppesky/docswave-desktop/releases) for **Windows** or **MacOS**.
 
 ## Development and Pull Requests
 
