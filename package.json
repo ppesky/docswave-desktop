@@ -1,6 +1,6 @@
 {
 	"name": "docswave-desktop",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"description": "A minimal Docswave desktop application",
 	"author": "ppesky",
 	"license": "MIT",
@@ -18,10 +18,10 @@
 			"target": [
 				"default"
 			],
-			"icon": "docswave_512.png"
+			"icon": "icon/docswave_512.png"
 		},
 		"dmg": {
-			"icon": "docswave.icns",
+			"icon": "icon/docswave.icns",
 			"format": "UDZO"
 		},
 		"linux": {
@@ -29,7 +29,7 @@
 				"appImage",
 				"deb"
 			],
-			"icon": "docswave_512.png",
+			"icon": "icon/docswave_512.png",
 			"category": "Office"
 		},
 		"win": {
@@ -43,7 +43,7 @@
 					"repo": "docswave-desktop"
 				}
 			],
-			"icon": "docswave_512.png"
+			"icon": "icon/docswave_512.png"
 		},
 		"nsis": {
 			"oneClick": true,
