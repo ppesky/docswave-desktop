@@ -7,6 +7,9 @@ const Menu = require('electron').Menu
 
 app.on('ready', () => {
   createWindow()
+  if (process.platform === 'darwin') {
+    createMenu4Mac()
+  }
 })
 
 let mainWindow
@@ -49,37 +52,34 @@ function createWindow () {
   });
 }
 
-function createMenu() {
+function createMenu4Mac() {
   const application = {
-    label: "Docswave Desktop",
+    label: app.getName(),
     submenu: [
-      {
-        label: "About Docswave Desktop",
-        selector: "orderFrontStandardAboutPanel:"
-      },
-      {
-        type: "separator"
-      },
-      {
-        label: "Quit",
-        accelerator: "Command+Q",
-        click: () => {
-          app.quit()
-        }
-      }
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
     ]
   }
 
   const edit = {
-    label: "Edit",
+    label: 'Edit',
     submenu: [
-      { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
-      { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
-      { type: "separator" },
-      { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
-      { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
-      { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
-      { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      { role: 'pasteandmatchstyle' },
+      { role: 'delete' },
+      { role: 'selectall' }
     ]
   }
 
